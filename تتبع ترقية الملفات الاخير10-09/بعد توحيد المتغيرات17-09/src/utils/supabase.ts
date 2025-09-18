@@ -1,0 +1,1 @@
+// This file is intentionally empty as we're using local IndexedDB instead of Supabase

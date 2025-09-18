@@ -1,0 +1,70 @@
+لرفع أي مشروع إلى GitHub، يمكنك اتباع الخطوات التالية باستخدام أوامر Git. إليك الأوامر بالتفصيل:
+
+### 1. إعداد Git
+إذا لم يكن لديك Git مثبتًا، قم بتثبيته أولاً.
+
+### 2. تهيئة مستودع Git
+إذا كنت تبدأ مشروعًا جديدًا:
+```bash
+cd path/to/your/project
+git init
+```
+
+### 3. إضافة ملفات
+لإضافة جميع الملفات إلى المستودع:
+```bash
+git add .
+```
+أو لإضافة ملفات محددة:
+```bash
+git add filename
+```
+
+### 4. إنشاء التزام
+قم بإنشاء التزام مع رسالة توضيحية:
+```bash
+git commit -m "Initial commit"
+```
+
+### 5. إعداد مستودع بعيد
+إذا كنت ترغب في رفع المشروع إلى مستودع موجود على GitHub:
+- أولاً، قم بإنشاء مستودع جديد على GitHub.
+- ثم اربط المستودع المحلي بالمستودع البعيد:
+```bash
+git remote add origin https://github.com/username/repository.git
+```
+استبدل `username` و`repository` باسم المستخدم الخاص بك واسم المستودع.
+
+### 6. دفع الملفات إلى GitHub
+لرفع الملفات إلى GitHub:
+```bash
+git push -u origin main
+```
+إذا كان الفرع لديك باسم مختلف (مثل `master`):
+```bash
+git push -u origin master
+```
+
+### 7. تحديث المستودع
+إذا قمت بإجراء تغييرات جديدة، يمكنك تكرار الخطوات التالية:
+```bash
+git add .
+git commit -m "Description of changes"
+git push
+```
+
+### ملاحظات إضافية
+- تأكد من أنك قد قمت بتسجيل الدخول إلى حساب GitHub الخاص بك في المتصفح.
+- إذا كنت تستخدم المصادقة الثنائية، قد تحتاج إلى استخدام **رمز مميز** (Personal Access Token) بدلاً من كلمة المرور.
+
+### مثال كامل لرفع مشروع
+```bash
+cd path/to/your/project
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/username/repository.git
+git push -u origin main
+```
+
+باتباع هذه الخطوات، يمكنك رفع أي مشروع إلى GitHub بنجاح. إذا كانت لديك أي استفسارات إضافية، فلا تتردد في طرحها!

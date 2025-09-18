@@ -1,0 +1,1154 @@
+/* purchases_alamin7src\index.css */
+
+
+/* 🟢 استيراد أنماط Tailwind الأساسية - لا تقم بتغيير هذه السطور */
+/* الأكواد العامة (Global Styles): هذه الأنماط تنطبق على كل من الشاشة والطباعة */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+---
+
+/* 🟢 أنماط عامة لتحسين مظهر الصفحة والتفاعل مع المستخدم */
+body {
+  /* السماح بالتمرير الرأسي للصفحة عند الحاجة */
+  overflow-y: auto;
+  /* يمكن تفعيل هذا السطر لتعيين خط افتراضي إذا لم يتم تعيينه بواسطة Tailwind أو مكونات أخرى */
+  /* السطر التالي تم تعليقة من الامين */
+  /* تحديد الخط الافتراضي */
+  /* font-family: 'Arial', sans-serif; */
+}
+
+/* 🟢 فرض استخدام الأرقام الإنجليزية (LTR) في جميع الحقول الرقمية */
+input[type="number"],
+input[inputmode="numeric"],
+.numeric-input {
+  /* اتجاه النص من اليسار إلى اليمين للأرقام لضمان قراءة صحيحة */
+  direction: ltr;
+  /* التأكد من استخدام خط Arial للأرقام لتناسق المظهر */
+  font-family: 'Arial', sans-serif !important;
+}
+
+/* 🟢 تحسين مظهر حقول الإدخال، الاختيار، والمناطق النصية على الشاشة */
+input,
+select,
+textarea {
+  /* تطبيق نمط text-sm من Tailwind لضبط حجم الخط بشكل متناسق */
+  @apply text-sm;
+}
+
+/* --- */
+
+/* 🟢 تحسين مظهر الجداول على الشاشة (للعرض على الشاشة وليس الطباعة) */
+table {
+  /* زوايا مستديرة */
+  border-radius: 0.5rem;
+  /* إخفاء أي محتوى يتجاوز حدود الجدول */
+  overflow: hidden;
+  /* إضافة ظل خفيف لتعزيز المظهر البصري */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* إزالة المسافة بين حدود الخلايا لدمجها */
+  border-spacing: 0;
+  /* ضبط ارتفاع السطر الافتراضي لمحتوى الجدول لجعل النص أكثر تماسكًا */
+  line-height: 1.3;
+  /* السماح للجدول بتحديد ارتفاعه تلقائيًا بناءً على المحتوى */
+  height: auto;
+  /* عرض كامل للجدول */
+  width: 100%;
+  margin-bottom: 0.5rem;
+  /* مسافة أسفل الجدول */
+  /* إضافة حدود خارجية واضحة للجدول */
+  border: 2px solid #374151;
+}
+
+/* 🟢 تحسين مظهر صفوف العناوين (th) في الجداول على الشاشة */
+th {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%) !important;
+  /* تطبيق تدرج لوني خلفية أزرق رسمي أكثر وضوحاً */
+  color: white !important;
+  /* لون النص أبيض يناسب الخلفية الزرقاء */
+  text-align: center !important;
+  /* توسيط النص داخل خلايا العناوين */
+  font-size: 15px !important;
+  /* حجم الخط لعناوين الجدول - أكبر قليلاً */
+  font-weight: bold !important;
+  /* جعل النص عريضاً */
+
+  /* مسافة داخلية محسنة للتحكم بارتفاع الصفوف */
+  padding: 12px 8px !important;
+  /* مسافة أكبر للعناوين */
+
+  /* إضافة حدود واضحة لتمييز رأس الجدول */
+  border: 2px solid #374151 !important;
+  /* حدود داكنة واضحة */
+
+  /* محاذاة المحتوى إلى الوسط في الخلية */
+  vertical-align: middle;
+  /* السماح بالتفاف النص وكسر الكلمات الطويلة */
+  white-space: normal;
+  word-wrap: break-word;
+  /* إضافة ظل نصي لتحسين الوضوح */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ================جديد=================================== */
+/* 🟢 تحسينات الأداء والمظهر الجديدة */
+
+/* تحسين الانتقالات والحركات */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.bounce-in {
+  animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تحسين مظهر الأزرار */
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-md font-medium;
+  @apply hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply transition-all duration-200 ease-in-out;
+  @apply shadow-sm hover:shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-medium;
+  @apply hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white px-4 py-2 rounded-md font-medium;
+  @apply hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  @apply transition-all duration-200 ease-in-out;
+  @apply shadow-sm hover:shadow-md;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white px-4 py-2 rounded-md font-medium;
+  @apply hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  @apply transition-all duration-200 ease-in-out;
+  @apply shadow-sm hover:shadow-md;
+}
+
+/* تحسين مظهر الحقول */
+.input-field {
+  @apply w-full border border-gray-300 rounded-md px-3 py-2 text-sm;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply transition-all duration-200 ease-in-out;
+  @apply placeholder-gray-400;
+}
+
+.input-field:invalid {
+  @apply border-red-300 focus:ring-red-500 focus:border-red-500;
+}
+
+.input-field:valid {
+  @apply border-green-300 focus:ring-green-500 focus:border-green-500;
+}
+
+/* تحسين مظهر البطاقات */
+.card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  @apply hover:shadow-md transition-shadow duration-200;
+}
+
+.card-header {
+  @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+}
+
+.card-body {
+  @apply px-6 py-4;
+}
+
+.card-footer {
+  @apply px-6 py-4 border-t border-gray-200 bg-gray-50;
+}
+
+/* تحسين مظهر الجداول */
+.table-enhanced {
+  @apply w-full border-collapse;
+}
+
+.table-enhanced th {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white;
+  @apply px-4 py-3 text-center font-semibold border border-gray-300;
+  @apply text-sm;
+}
+
+.table-enhanced td {
+  @apply px-4 py-3 border border-gray-300 text-sm;
+  @apply hover:bg-blue-50 transition-colors duration-150;
+}
+
+.table-enhanced tr:nth-child(even) td {
+  @apply bg-gray-50;
+}
+
+/* تحسين مظهر الإشعارات */
+.notification {
+  @apply fixed top-4 right-4 z-50 max-w-sm;
+  @apply bg-white border border-gray-200 rounded-lg shadow-lg;
+  @apply transform transition-all duration-300 ease-in-out;
+}
+
+.notification.show {
+  @apply translate-x-0 opacity-100;
+}
+
+.notification.hide {
+  @apply translate-x-full opacity-0;
+}
+
+/* تحسين مظهر المودال */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50;
+  @apply flex items-center justify-center p-4;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-xl max-w-md w-full;
+  @apply transform transition-all duration-300 ease-out;
+  @apply scale-95 opacity-0;
+}
+
+.modal-content.show {
+  @apply scale-100 opacity-100;
+}
+
+/* تحسين إمكانية الوصول */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+  @apply whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* تحسين التركيز للوحة المفاتيح */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* تحسين مظهر شريط التمرير */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* تحسين مظهر الطباعة */
+@media print {
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .print-optimized {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /*================= يتبع الجديد================== */
+  /* 🟢 ضغط المحتوى ليظهر في صفحة واحدة قدر الإمكان */
+  /* .print-container {
+    transform: scale(0.90);
+    transform-origin: top center;
+  } */
+  
+  /* شارة الطباعة الأولية أعلى الصفحة */
+  /* .preliminary-badge {
+    position: fixed;
+    top: 2mm;
+    right: 4mm;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b45309;  */
+  /* amber-700 */
+  /* } */
+
+
+  /* 🟢 تصغير سطر سعر الصرف */
+  /* .exchange-rate-row input {
+    font-size: 10px !important;
+    padding: 1px 2px !important;
+  } */
+  
+
+  table+table {
+    /* منع أي مسافة بين جدول والذي يليه مباشرة */
+    margin-top: 0 !important;
+  }
+
+  /* إن كان هناك مسافات من الحاويات بسبب space-y-* */
+  .print-no-gaps> :where(:not([hidden]) ~ :not([hidden])) {
+    margin-top: 0 !important;
+  }
+
+  /* إزالة أي هوامش داخل الحاوية المخصصة للطباعة */
+  .print-no-gaps *,
+  .print-container * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .print-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .print-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .print-no-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+/* متغيرات CSS للألوان */
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary: #6b7280;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --border-radius: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
+}
+
+/* تحسين الاستجابة للأجهزة المحمولة */
+@media (max-width: 768px) {
+  .mobile-stack {
+    @apply flex-col space-y-2;
+  }
+
+  .mobile-full-width {
+    @apply w-full;
+  }
+
+  .mobile-text-sm {
+    @apply text-sm;
+  }
+
+  .mobile-p-2 {
+    @apply p-2;
+  }
+}
+
+/* تحسين الأداء */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.optimize-rendering {
+  contain: layout style paint;
+}
+
+/* =============================================================== */
+
+/* 🟢 تحسين مظهر خلايا البيانات (td) في الجداول على الشاشة */
+td {
+  /* حجم الخط لخلايا البيانات */
+  font-size: 14px !important;
+
+  /* مسافة داخلية (padding) محسنة للتحكم بارتفاع الصفوف */
+  padding: 10px 6px !important;
+
+  /* حدود الخلايا واضحة ومحددة */
+  border: 1px solid #6b7280 !important;
+  /* حدود رمادية واضحة */
+
+  /* محاذاة المحتوى إلى الوسط في الخلية */
+  vertical-align: middle;
+  /* ضبط ارتفاع السطر لجعل النص أكثر تماسكًا */
+  line-height: 1.4;
+  /* السماح بالتفاف النص وكسر الكلمات الطويلة */
+  white-space: normal;
+  word-wrap: break-word;
+  /* إضافة خلفية متناوبة للصفوف */
+  background-color: #ffffff;
+}
+
+/* إضافة خلفية متناوبة للصفوف */
+tr:nth-child(even) td {
+  background-color: #f9fafb;
+}
+
+/* 🟢 تغيير لون خلفية الصف عند التحويم (على الشاشة) */
+tr:hover td {
+  background-color: #e0f2fe !important;
+  /* لون أزرق فاتح جداً */
+  transition: background-color 0.2s ease;
+}
+
+/* =================تنسيق جدول التوصية على الشاشة =========================  */
+/* تحسين مظهر المبلغ كتابة */
+/* المطابق */
+.amount-in-words {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+/* تصغير خط المبلغ كتابة إذا كان طويلاً */
+/* المطابق الجزئي */
+.amount-in-words.long-text {
+  font-size: 16px !important;
+  line-height: 1.1 !important;
+}
+
+/* تقليل المسافة بين العناصر في جدول التوصية */
+.print-tight {
+  line-height: 1.2 !important;
+  /* تقليل تباعد السطور */
+  margin-bottom: 2px !important;
+  /* تقليل الفراغ بين الصفوف */
+  padding: 2px 0 !important;
+  /* ضغط الحقول */
+}
+
+/* ========================================== */
+
+/* --- */
+
+/* 🟢 تحسين مظهر الأزرار على الشاشة */
+button {
+  /* إضافة انتقال سلس لجميع التحولات للحركة الناعمة */
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🟢 تأثير عند التحويم على الأزرار (إذا لم تكن معطلة) */
+button:hover:not(:disabled) {
+  /* رفع الزر قليلاً للأعلى لإعطاء إحساس بالتفاعل */
+  transform: translateY(-1px);
+  /* إضافة ظل أكبر لجعل الزر يبرز */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟢 أنماط الأزرار المعطلة */
+button:disabled {
+  /* تقليل الشفافية للإشارة إلى أنها غير نشطة */
+  opacity: 0.6;
+  /* تغيير شكل المؤشر */
+  cursor: not-allowed;
+  /* إزالة أي تحولات أو ظلال لتجنب التفاعل الخاطئ */
+  transform: none !important;
+  /* إزالة الظل */
+  box-shadow: none !important;
+}
+
+/* --- */
+
+/* 🟢 تحسين مظهر الحقول عند التركيز عليها (لتحسين تجربة الإدخال) */
+input:focus,
+select:focus,
+textarea:focus {
+  /* إزالة الحدود الافتراضية عند التركيز لمنع التكرار البصري */
+  outline: none;
+  /* تطبيق حلقة (ring) حول العنصر من Tailwind لإبرازه */
+  ring: 2px;
+  /* لون الحلقة أزرق */
+  ring-color: #3b82f6;
+  /* تغيير لون الحدود إلى الأزرق */
+  border-color: #3b82f6;
+}
+
+/* 🟢 أنماط حقول الإدخال المطلوبة (required) لتوضيح حالة الصلاحية */
+input:required:invalid {
+  /* لون أحمر للحدود إذا كانت الحقول غير صالحة (فارغة أو غير مطابقة للنمط) */
+  border-color: #ef4444;
+}
+
+input:required:valid {
+  /* لون أخضر للحدود إذا كانت الحقول صالحة (ممتلئة أو مطابقة للنمط) */
+  border-color: #10b981;
+}
+
+/* 🟢 تحسين مظهر الحقول النصية المتوسعة (textarea) على الشاشة */
+textarea {
+  /* انتقال سلس لتغيير الارتفاع عند الكتابة */
+  transition: height 0.2s ease;
+}
+
+/* --- */
+
+/* 🟢 أنماط فئات التنبيهات (Alerts) للمسجات التفاعلية */
+.alert {
+  border-radius: 0.5rem;
+  /* زوايا مستديرة */
+  padding: 0.75rem 1rem;
+  /* مسافة داخلية */
+  margin: 0.5rem 0;
+  /* هامش حول التنبيه */
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  /* لون خلفية أخضر فاتح */
+  border-color: #10b981;
+  /* لون حدود أخضر */
+  color: #065f46;
+  /* لون نص أخضر داكن */
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  /* لون خلفية أحمر فاتح */
+  border-color: #ef4444;
+  /* لون حدود أحمر */
+  color: #991b1b;
+  /* لون نص أحمر داكن */
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  /* لون خلفية أصفر فاتح */
+  border-color: #f59e0b;
+  /* لون حدود أصفر */
+  color: #92400e;
+  /* لون نص أصفر داكن */
+}
+
+/* تنسيقات خاصة بالعرض على الشاشة */
+
+/* 🟢 تنسيق الحاوية الرئيسية للمحتوى ع الشاشة */
+.container {
+  max-width: 1200px;
+  /* تحديد أقصى عرض للحاوية 1400  */
+  margin: 0 auto;
+  /* توسيط الحاوية أفقياً */
+  padding: 0 1rem;
+  /* مسافة داخلية أفقية */
+}
+
+
+/* اكواد خاصة بزر الاضافة العائم اليدوي */
+.floating-button {
+  position: absolute;
+  /* مهم لتحديد موقعه بالنسبة للحاوية الأب*/
+  /* position: fixed; */
+  bottom: 1rem;
+  /* مسافة من الأسفل */
+  right: 0rem;
+  /* مسافة من اليمين */
+  background-color: #2563eb;
+  /* لون أزرق */
+  color: white;
+  border-radius: 9999px;
+  /* لجعل الزر دائرياً */
+  padding: 0.75rem;
+  /* مسافة داخلية */
+  display: flex;
+  /* لتحديد اتجاه النص */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* ظل خفيف */
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  /* لضمان ظهوره فوق العناصر الأخرى */
+  /* عرض الزر */
+  width: 50px;
+}
+
+.floating-button:hover {
+  background-color: #1d4ed8;
+  /* لون أزرق أغمق عند التحويم */
+}
+
+/* أنماط نافذة المودال (المحتوى الداخلي) */
+.modal-content {
+  background-color: white;
+  border-radius: 0.5rem;
+  /* زوايا مدورة */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  /* ظل */
+  /* p-6 و max-w-md و mx-auto و mt-20 تم تطبيقها مباشرة في JSX */
+}
+
+/* اكواد اخفاء الزر عند الطباعة تم نقلها الى قسم الطباعة */
+/* ==============انتهى الاكواد خاصة بزر الاضافة العائم اليدوي=========== */
+
+/* لإخفاء أزرار الأسهم من حقل  مبلغ العرض */
+input.no-spin::-webkit-inner-spin-button,
+input.no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* إزالة الزر */
+  margin: 0;
+  /* إزالة الهامش */
+}
+
+/* لإخفاء الأسهم في Firefox */
+input.no-spin {
+  -moz-appearance: textfield;
+  /* استخدام مظهر النص بدلاً من العدد */
+}
+
+/* ========================== */
+
+/* 🟢 تحسين واجهة RTL لمدخلات التاريخ */
+input[type="date"] {
+  direction: rtl;
+  text-align: left; /* يجعل الأرقام في مكانها الصحيح داخل الحقل */
+}
+
+/* 🟢 تخصيص أنماط الطباعة - هذا الجزء هو الأهم للتحكم في المطبوعات */
+@media print {
+
+  /* اطبع فقط محتوى الخلاصة عند فتحها */
+  /* نطبّق الإخفاء فقط إذا كانت نافذة الخلاصة موجودة */
+  body:has(.summary-print-scope) * { visibility: hidden !important; }
+  body:has(.summary-print-scope) .summary-print-scope { display: block !important; position: static !important; align-items: stretch !important; justify-content: flex-start !important; padding: 0 !important; margin: 0 !important; }
+  body:has(.summary-print-scope) .summary-print-scope,
+  body:has(.summary-print-scope) .summary-print-scope * { visibility: visible !important; }
+
+  /* إذا الخلاصة مفتوحة ولكن لم يتم التفويض بالطباعة → امنع الطباعة كلياً */
+  /* الحجب لا يعمل إلا في وضع الطباعة فقط */
+  body:has(.summary-print-scope).summary-print-locked * { display: none !important; }
+  body:has(.summary-print-scope).summary-print-locked .summary-print-scope { display: block !important; }
+  body:has(.summary-print-scope).summary-print-locked .summary-print-scope .print-locked-notice { display: block !important; visibility: visible !important; }
+
+  .summary-print-root { margin: 0 !important; padding: 0 !important; page-break-before: auto !important; break-before: avoid !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+  /* إصلاح عرض الجداول داخل الخلاصة */
+  .summary-print-root table { display: table !important; }
+  .summary-print-root thead { display: table-header-group !important; }
+  .summary-print-root tbody { display: table-row-group !important; }
+  .summary-print-root tr { display: table-row !important; }
+  .summary-print-root th, .summary-print-root td { display: table-cell !important; }
+
+  /* 🟢 حجم الصفحة عند الطباعة */
+  @page {
+    size: A4;
+    /* حجم الصفحة A4 */
+    /* قم بتعديل هذه القيمة لضبط الهوامش على جميع الجوانب */
+    margin: 0.9cm !important;
+    /* 🟢 تقليل الهوامش إلى الحد الأدنى 1سم */
+  }
+
+
+  /* ===============أهم دالة التحكم في المطبوعات=============== */
+  /* هام تصغير عناوين الجداول عند الطباعة الى النصف او اكثر*/
+  /* ضروري ننشئ كلاس باسم print-container في صغحات الجداول */
+  .print-container h2 {
+    font-size: 0.875rem;
+    /* تصغير حجم الخط */
+    margin: 0 !important;
+    /* إزالة الهوامش */
+    padding: 0;
+    /* إزالة المسافات الداخلية إذا لزم الأمر */
+    line-height: 1.2;
+    /* تقليل تباعد الأسطر */
+  }
+
+  .print-container .icon {
+    width: 14px;
+    /* 16 تصغير حجم الأيقونة */
+    height: 14px;
+    /* 16 تصغير حجم الأيقونة */
+    /* margin: 0;        إزالة الهوامش */
+    /* padding: 0;       إزالة المسافات الداخلية إذا لزم الأمر */
+  }
+  
+  /* تقليل المسافات في الطباعة */
+  .print-container {
+    padding: 0;
+    /* إزالة الهوامش من الحاوية */
+    margin: 0;
+    /* إزالة الهوامش من الحاوية */
+  }
+
+  /* =================== */
+
+
+  /* =================جديد تنسيق جدول التوصية عند الطباعة =========================  */
+  /* تحسين مظهر المبلغ كتابة */
+  /* المطابق */
+  .amount-in-words {
+    font-size: 13px !important;
+    line-height: 1.0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* تصغير خط المبلغ كتابة إذا كان طويلاً */
+  /* المطابق جزئي */
+  .amount-in-words.long-text {
+    font-size: 13px !important;
+    line-height: 1.0 !important;
+  }
+
+  /* تقليل المسافة بين العناصر في جدول التوصية */
+  .print-tight {
+    line-height: 1.0 !important;
+    /* تقليل تباعد السطور */
+    margin-bottom: 0.3px !important;
+    /* تقليل الفراغ بين الصفوف */
+    padding: 1px 0 !important;
+    /* ضغط الحقول */
+  }
+
+
+  /* ================================== */
+  /* جديد */
+  /* جديد محاولة لازالة المسافات بين الجداول عند الطباعة  */
+
+@media print {
+
+  tr,
+  td {
+    padding: 0 !important;
+  }
+
+  .table-wrapper,
+  .container,
+  .section {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  br,
+  hr {
+    display: none !important;
+  }
+
+  /* إزالة أي فواصل غير ضرورية بين الجداول */
+  .spacer,
+  .gap {
+    display: none !important;
+  }
+}
+
+  /* ========================================================= */
+
+
+  /* 🟢 أنماط الجسم عند الطباعة */
+  body {
+    margin: 0;
+    /* إزالة الهوامش الافتراضية للجسم */
+    padding: 0;
+    /* إزالة المسافات الداخلية الافتراضية */
+    font-size: 13px;
+    /* حجم الخط الافتراضي للطباعة */
+    line-height: 1.1;
+    /* 1.4 تباعد بين الأسطر لسهولة القراءة */
+    -webkit-print-color-adjust: exact !important;
+    /* color-adjust: exact !important; */
+    print-color-adjust: exact !important;
+    /* الحفاظ على الألوان عند الطباعة */
+  }
+
+  /* 🟢 كلاس لإضافة حدود حول محتوى الصفحة عند الطباعة */
+  /* يجب تطبيق هذا الكلاس على div يغلف كل المحتوى في JSX */
+  .print-page-border {
+    border: 1px solid black !important;
+    /* حدود سوداء رقيقة */
+    padding: 5px !important;
+    /* مسافة داخلية صغيرة بين الحدود والمحتوى */
+    box-sizing: border-box !important;
+    /* لضمان أن البادينغ لا يزيد العرض الإجمالي */
+  }
+
+  /* 🟢 إخفاء العناصر غير الضرورية عند الطباعة */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* 🟢 إظهار العناصر المخفية افتراضياً عند الطباعة */
+  .print\:block {
+    display: block !important;
+  }
+
+  /* 🟢 منع فواصل الصفحات داخل العنصر (مثالي للجدول لعدم قطعه) */
+  .print\:break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* 🟢 تقليل المسافات الداخلية والهوامش بين العناصر عند الطباعة */
+  .print\:p-1 {
+    padding: 0.15rem !important;
+  }
+
+  .print\:p-2 {
+    padding: 0.25rem !important;
+  }
+
+  /* 0.25rem تقليل المسافات العمودية */
+  .print\:py-1 {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+  }
+
+  .print\:mb-1 {
+    margin-bottom: 0.15rem !important;
+  }
+
+  /* 0.25 تقليل المسافات السفلية */
+  .print\:mb-2 {
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* 0.5rem */
+
+  /* 🟢 تحسين مظهر الجداول للطباعة */
+  table {
+    width: 100% !important;
+    /* عرض كامل للجدول */
+    border-collapse: collapse !important;
+    /* دمج حدود الخلايا */
+    /* إزالة المسافات بين الجداول */
+    margin-bottom: 0 !important;
+    /* 🟢 0.1cm تقليل الهامش السفلي بين الجداول إلى الحد الأدنى */
+    table-layout: fixed !important;
+    /* 🟢 هام: لتحديد عرض الأعمدة بدقة ومنع التجاوز */
+    /* سطرين اضافيين */
+    box-shadow: none !important;
+    /* إزالة الظل للطباعة */
+    border-radius: 0 !important;
+    /* إزالة الزوايا المستديرة */
+    page-break-inside: avoid !important;
+    /* منع قطع الجدول عبر الصفحات */
+
+    border-spacing: 0 !important;
+  }
+
+  /* 🟢 تنسيق خلايا العناوين والبيانات في الجداول عند الطباعة */
+  th,
+  td {
+    border: 1px solid #333 !important;
+    /* 🟢هام  حدود داكنة للخلايا */
+    /* حدود واضحة لجميع الخلايا */
+    padding: 2px 3px !important;
+    /* 🟢 تقليل (المسافة الداخلية) إلى أدنى حد */
+    /* text-align: center !important; محاذاة النص إلى اليمين */
+    text-align: center;
+    font-size: 13px !important;
+    /* 🟢13 حجم خط مناسب للجداول عند الطباعة */
+    line-height: 1.2 !important;
+    /* 🟢 مسافة سطر ضيقة جداً للسماح بتمدد السطور تلقائيًا */
+    word-wrap: break-word !important;
+    /* السماح بكسر الكلمات الطويلة */
+    overflow-wrap: break-word !important;
+    /* السماح بتقسيم الكلمات الطويلة */
+    white-space: normal !important;
+    /* السماح بالتفاف النص */
+    /* vertical-align: top !important;       محاذاة المحتوى إلى الأعلى في الخلايا */
+    vertical-align: center;
+    /* لتوسيط النص في عمود العناوين الجانبي */
+  }
+
+  /* 🟢 تنسيق صف العناوين في الجداول للطباعة */
+  th {
+    background-color: #2563eb !important;
+    /* لون خلفية أزرق رسمي */
+    color: white !important;
+    /* لون النص أبيض */
+    font-weight: bold !important;
+    /* جعل الخط عريضاً */
+    font-size: 14px !important;
+    /* 14 حجم خط أكبر قليلاً لعناوين الجدول */
+    text-align: center !important;
+    /* توسيط النص في العناوين */
+
+
+    /* سطور اضافيه */
+    /* حدود الخلايا */
+    /* border-top: 2px solid black !important; حد علوي سميك
+        border-bottom: 2px solid black !important; حد سفلى سميك
+        border-left: 2px solid black !important; حد يسار سميك
+        border-right: 2px solid black !important; حد يمين سميك
+        padding: 3px !important; مسافة داخلية (padding) للعناوين
+        vertical-align: top !important; محاذاة المحتوى إلى الأعلى في الخلايا */
+  }
+
+  /* 🟢 تحسين عرض الأعمدة عند الطباعة */
+  .print\:w-20-percent {
+    width: 20% !important;
+    min-width: 20% !important;
+  }
+
+  .print\:offers-column {
+    /* حساب عرض عمود العروض بناءً على عدد العروض */
+    width: calc(80% / var(--offer-count, 3)) !important;
+  }
+
+  /* 🟢 إخفاء عناصر التحكم (القوائم المنسدلة والأزرار) عند الطباعة */
+  select,
+  button {
+    display: none !important;
+  }
+
+  /* 🟢 تنسيق مظهر حقول الإدخال والمناطق النصية عند الطباعة */
+  input,
+  textarea {
+    border: none !important;
+    /* إزالة الحدود */
+    padding: 0 !important;
+    /* إزالة المسافة الداخلية */
+    background: transparent !important;
+    /* جعل الخلفية شفافة */
+    font-size: 13px !important;
+    /*13 حجم خط مناسب */
+    word-wrap: break-word !important;
+    /* السماح بكسر الكلمات الطويلة */
+    overflow-wrap: break-word !important;
+    /* السماح بتقسيم الكلمات الطويلة */
+    white-space: normal !important;
+    /* السماح بالتفاف النص */
+    text-align: right;
+    /* !important  هام */
+    /* محاذاة النص لليمين للحقول النصية */
+  }
+
+  /* 🟢 ضبط ارتفاع ليتمدد تلقائيًا حسب المحتوى عند الطباعة */
+  textarea {
+    resize: none !important;
+    /* منع تغيير حجم المنطقة النصية يدويًا */
+    overflow: hidden !important;
+    /* إخفاء شريط التمرير */
+    height: auto !important;
+    /* 🟢 السماح للمنطقة النصية بالتمدد تلقائيًا */
+    min-height: 1.1em !important;
+    /* 🟢 ارتفاع أدنى لسطر واحد */
+  }
+
+  /* 🟢 تحسين مظهر العناوين (h1, h2, h3) عند الطباعة */
+  h1,
+  h2,
+  h3 {
+    font-size: 14px !important;
+    /* 16px حجم خط أكبر للعناوين */
+    margin-top: 0 !important;
+    /* 🟢 0.1cm تقليل الهامش العلوي */
+    margin-bottom: 0 !important;
+    /* 🟢0.1cm تقليل الهامش السفلي */
+    font-weight: bold !important;
+    /* جعل الخط عريضاً */
+    text-align: right !important;
+    /* توسيط او محاذاة يمين العناوين */
+
+    /* سطور اضافية */
+    /* border-bottom: 2px solid #2563eb !important; خط أزرق سفلي للعناوين */
+    /* border-bottom: 2px solid #333 !important;  */
+    /* خط داكن سفلي */
+    /* padding-bottom: 0 !important;  0.5rem مسافة بين النص والخط */
+  }
+
+
+  /* h1, h2, h3 { */
+  /* كيف يمكن تغيير لون الخط لكل مستوى في العناوين */
+  h1 {
+    font-size: 16px !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: bold !important;
+    color: #1e40af !important;
+    border-bottom-color: #1e40af !important;
+  }
+
+  /* h2 {
+  } */
+
+  /* 🟢 للتحكم بالمسافات بين العناوين والجداول مباشرةً */
+  h1+table,
+  h2+table,
+  h3+table,
+  .table-title+table {
+    /* هام إذا كان لديك فئة لعنوان الجدول */
+    margin-top: 0 !important;
+    /* إزالة أي هامش علوي بين العنوان والجدول */
+  }
+
+  /* 🟢 تحسين مظهر الفقرات عند الطباعة */
+  p {
+    font-size: 13px !important;
+    /* 14 زيادة حجم الخط للفقرات */
+    margin-bottom: 0 !important;
+    /* 🟢 0.1cm تقليل الهامش السفلي */
+  }
+
+  /* 🟢 تحسين مظهر قسم التوقيعات عند الطباعة */
+  .print\:grid-cols-4>div {
+    text-align: center !important;
+    /* توسيط النص */
+    font-size: 12px !important;
+    /*13 زيادة حجم الخط */
+  }
+
+  /* 🟢 أضافة حد علوي للطباعة */
+  .print\:border-t {
+    border-top: 1px solid #333 !important;
+  }
+
+  /* 🟢 تحسين التفاف النص في الخلايا الصغيرة جداً */
+  .text-xs {
+    font-size: 10px !important;
+    /*11 حجم خط أصغر */
+    line-height: 1.2 !important;
+    /*1.3 مسافة سطر ضيقة */
+  }
+
+  /* 🟢 تحسين عرض الجداول عند وجود عروض كثيرة (للطباعة على صفحات أصغر) */
+  @media print and (max-width: 21cm) {
+
+    /* استهداف أجهزة الطباعة ذات العرض المشابه لـ A4 */
+    table {
+      font-size: 10px !important;
+      /* حجم خط الجدول أصغر قليلاً */
+    }
+
+    th,
+    td {
+      padding: 3px 4px !important;
+      /*3px 4px مسافات داخلية أصغر */
+      font-size: 11px !important;
+      /*11 حجم خط الخلايا أصغر */
+    }
+
+    input,
+    textarea {
+      font-size: 11px !important;
+      /*11 حجم خط حقول الإدخال أصغر */
+    }
+  }
+
+  /* 🟢 إظهار عدد العروض (إذا كانت مخفية افتراضياً) عند الطباعة */
+  .print\:show-offer-count {
+    display: inline !important;
+  }
+
+
+  /* تحسين مظهر الطباعة - جعل كل المحتوى في صفحة واحدة */
+  .print-single-page {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+
+  /* تحسين مظهر العناوين في الطباعة */
+  .print-container h2 {
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+
+  /* ==================اكواد جديده ====================== */
+  /* صناديق التوقيع للطباعة */
+  .signature-box {
+    border: 0.2px solid #9f9696e1 !important;
+    /* رمادية سمك خط الحدود*/
+    padding: 2px !important;
+    /* 4px مسافة داخلية */
+    min-height: 24px !important;
+    /* 48px عرض الصندوق */
+  }
+
+  /* خطوط التوقيع للطباعة */
+  .signature-title {
+    font-weight: 700 !important;
+    /* زيادة حجم الخط */
+    margin-bottom: 0.3px !important;
+    /* 4px مسافة سطر ضيقة */
+    font-size: 12px !important;
+    /* 13 حجم الخط */
+  }
+
+  /* اسماء التوقيع للطباعة */
+  .signature-name {
+    font-size: 11px !important;
+    min-height: 16px !important;
+    /* 16px عرض الاسم */
+    display: inline-block !important;
+    /* عرض الاسم في سطر مستقل */
+  }
+
+  /* 🟢 أنماط الطباعة للزر  الاضافة اليدوي العائم والمودال */
+  .floating-button,
+  .modal-content {
+    display: none !important;
+    /* إخفاء الزر والمودال تماماً عند الطباعة */
+  }
+}
+
+
+ /* هام جداً لازالة المسافات بين الجداول عند الطباعة 
+ في صفحة PurchaseOrderSystem.tsx */
